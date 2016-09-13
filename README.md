@@ -56,6 +56,27 @@ please [file an issue](https://github.com/ludios/grab-site/issues) - thank you!
 - [Help](#help)
 
 
+Install with Docker
+---
+Get the pre-built docker container:
+
+```bash
+docker pull slang800/grab-site
+```
+
+Start the grab-site server. You can set the port, volume, and name to whatever you want:
+
+```bash
+docker run --detach -p 29000:29000 -v /home/ludios/download/grab-site-data:/data --name warcfactory slang800/grab-site
+```
+
+Run a new crawl:
+
+```bash
+docker exec warcfactory grab-site --no-offsite-links http://xkcd.com/
+```
+
+The downloaded data, temp files, ignores list, and other configuration will be in a sub-directory of the mounted volume. In this case, `/home/ludios/download/grab-site-data/xkcd.com-2016-09-05-caf0a39c`.
 
 Install on Ubuntu 16.04, 18.04, Debian 9 (stretch), Debian 10 (buster)
 ---
